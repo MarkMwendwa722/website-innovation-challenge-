@@ -480,3 +480,50 @@ select:focus {
   outline: 3px solid #ffff00 !important;
   outline-offset: 2px !important;
 }
+
+/* Mobile Navigation Scrollbar Styles */
+.navbar-collapse {
+  scrollbar-width: thin;
+}
+
+/* Webkit scrollbar for mobile navigation */
+.navbar-collapse::-webkit-scrollbar {
+  width: 6px;
+}
+
+.navbar-collapse::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.navbar-collapse::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.navbar-collapse::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+/* Dark theme scrollbar for mobile navigation */
+body.dark-theme .navbar-collapse::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .navbar-collapse::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.4);
+}
+
+body.dark-theme .navbar-collapse::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.6);
+}
+
+/* Firefox scrollbar for mobile navigation */
+body.light-theme .navbar-collapse {
+  scrollbar-color: rgba(59, 130, 246, 0.4) rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme .navbar-collapse {
+  scrollbar-color: rgba(245, 158, 11, 0.4) rgba(255, 255, 255, 0.05);
+}

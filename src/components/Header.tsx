@@ -316,9 +316,22 @@ const Header: React.FC = () => {
             border: theme === 'light' 
               ? '1px solid rgba(59, 130, 246, 0.1)' 
               : '1px solid rgba(245, 158, 11, 0.2)',
+            maxHeight: 'calc(100vh - 120px)',
+            overflowY: 'auto',
+            overflowX: 'hidden',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'thin',
+            scrollbarColor: theme === 'light' 
+              ? 'rgba(59, 130, 246, 0.3) rgba(0, 0, 0, 0.1)' 
+              : 'rgba(245, 158, 11, 0.3) rgba(255, 255, 255, 0.1)',
           }}
         >
-          <div className="d-flex flex-column gap-2">
+          <div className="d-flex flex-column gap-2"
+               style={{
+                 paddingBottom: '8px',
+                 position: 'relative'
+               }}
+          >
             {navigation.map((item) => (
               <motion.a
                 key={item.name}
@@ -364,6 +377,24 @@ const Header: React.FC = () => {
             >
               Register Now
             </motion.button>
+            
+            {/* Scroll indicator for mobile menu */}
+            <div 
+              className="position-absolute"
+              style={{
+                bottom: '0',
+                left: '0',
+                right: '0',
+                height: '20px',
+                background: `linear-gradient(to top, ${
+                  theme === 'light' 
+                    ? 'rgba(249, 250, 251, 0.9)' 
+                    : 'rgba(31, 41, 55, 0.9)'
+                } 0%, transparent 100%)`,
+                pointerEvents: 'none',
+                opacity: 0.6
+              }}
+            />
           </div>
         </motion.div>
       </div>
