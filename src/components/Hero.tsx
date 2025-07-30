@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
                   }}
                 />
               </span>
-              
+              4th Innovation Week & Industry Summit 2025
             </motion.div>
             
             {/* Main Heading */}
@@ -101,11 +101,11 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="display-3 fw-bold mb-4"
             >
-              <span className="text-gradient">Innovate</span>
+              <span className="text-gradient">Innovate.</span>
               <br />
-              <span style={{ color: theme === 'light' ? '#111827' : '#ffffff' }}>Tomorrow</span>
+              <span className="text-gradient">Elevate.</span>
               <br />
-              <span className="text-gradient">Today</span>
+              <span style={{ color: theme === 'light' ? '#111827' : '#e2e8f0' }}>Impact.</span>
             </motion.h1>
             
             {/* Description */}
@@ -115,13 +115,14 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="fs-5 mb-5 mx-auto"
               style={{
-                maxWidth: '600px',
+                maxWidth: '700px',
                 color: theme === 'light' ? '#6b7280' : '#d1d5db',
                 lineHeight: '1.7'
               }}
             >
-              Join Kenya's brightest minds, industry leaders, and innovative thinkers for a transformative 
-              seminar focused on technological advancement, entrepreneurship, and sustainable innovation.
+              Join KCA University's flagship innovation event celebrating creativity, research excellence, and 
+              collaboration between academia, industry, government, and community. Transform promising ideas 
+              into viable commercial and social ventures that contribute to sustainable development.
             </motion.p>
 
             {/* Event Details */}
@@ -145,7 +146,7 @@ const Hero: React.FC = () => {
                   <CalendarIcon style={{ width: '24px', height: '24px', color: theme === 'light' ? '#3b82f6' : '#f59e0b' }} className="me-3" />
                   <div className="text-start">
                     <p className="mb-0 small" style={{ color: theme === 'light' ? '#6b7280' : '#9ca3af' }}>Date</p>
-                    <p className="mb-0 fw-semibold" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }}>March 15-16, 2025</p>
+                    <p className="mb-0 fw-semibold" style={{ color: theme === 'light' ? '#111827' : '#e2e8f0' }}>Oct 28-30, 2025</p>
                   </div>
                 </div>
               </div>
@@ -164,7 +165,7 @@ const Hero: React.FC = () => {
                   <MapPinIcon style={{ width: '24px', height: '24px', color: theme === 'light' ? '#3b82f6' : '#f59e0b' }} className="me-3" />
                   <div className="text-start">
                     <p className="mb-0 small" style={{ color: theme === 'light' ? '#6b7280' : '#9ca3af' }}>Venue</p>
-                    <p className="mb-0 fw-semibold" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }}>KCA Campus</p>
+                    <p className="mb-0 fw-semibold" style={{ color: theme === 'light' ? '#111827' : '#e2e8f0' }}>KCA Main Campus, Ruaraka</p>
                   </div>
                 </div>
               </div>
@@ -183,7 +184,7 @@ const Hero: React.FC = () => {
                   <UsersIcon style={{ width: '24px', height: '24px', color: theme === 'light' ? '#3b82f6' : '#f59e0b' }} className="me-3" />
                   <div className="text-start">
                     <p className="mb-0 small" style={{ color: theme === 'light' ? '#6b7280' : '#9ca3af' }}>Capacity</p>
-                    <p className="mb-0 fw-semibold" style={{ color: theme === 'light' ? '#111827' : '#ffffff' }}>500+ Attendees</p>
+                    <p className="mb-0 fw-semibold" style={{ color: theme === 'light' ? '#111827' : '#e2e8f0' }}>500+ Attendees</p>
                   </div>
                 </div>
               </div>
@@ -206,48 +207,21 @@ const Hero: React.FC = () => {
               </motion.button>
               
               <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -2,
+                  background: theme === 'light' ? '#3b82f6' : '#f9880eff',
+                }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
                 className="kca-btn kca-btn-outline kca-btn-lg"
+                style={{
+                  background: theme === 'light' ? '#f4f7f9ff' : 'rgba(59, 130, 246, 0.1)',
+                  color: theme === 'light' ? '#3b82f6' : '#f9870e'
+                }}
               >
                 Learn More
               </motion.button>
-            </motion.div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.5 }}
-              className="position-absolute"
-              style={{
-                bottom: '2rem',
-                left: '50%',
-                transform: 'translateX(-50%)'
-              }}
-            >
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="rounded-pill d-flex justify-content-center"
-                style={{
-                  width: '24px',
-                  height: '40px',
-                  border: `2px solid ${theme === 'light' ? '#9ca3af' : '#6b7280'}`,
-                }}
-              >
-                <motion.div
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="rounded-pill mt-2"
-                  style={{
-                    width: '4px',
-                    height: '12px',
-                    background: theme === 'light' ? '#9ca3af' : '#6b7280'
-                  }}
-                />
-              </motion.div>
             </motion.div>
           </div>
         </motion.div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeftIcon, ChevronRightIcon, PlayIcon, PauseIcon } from '@heroicons/react/24/outline';
 import { useTheme } from '../contexts/ThemeContext';
+import Kca from '../assets/KCA University, Nairobi Kenya.jpg';
 
 const Gallery: React.FC = () => {
   const { theme } = useTheme();
@@ -14,36 +15,84 @@ const Gallery: React.FC = () => {
       title: 'KCA University Campus',
       description: 'State-of-the-art facilities for innovation and learning',
       category: 'Campus',
+      image: Kca,
     },
     {
       id: 2,
       title: 'Innovation Lab',
       description: 'Where ideas come to life through cutting-edge technology',
       category: 'Facilities',
+      image: 'https://images.pexels.com/photos/159740/library-la-trobe-study-students-159740.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
     },
     {
       id: 3,
       title: 'Previous Seminar Success',
       description: 'Highlights from our 2024 Innovation Seminar',
       category: 'Events',
+      image: 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
     },
     {
       id: 4,
       title: 'Student Projects',
       description: 'Innovative solutions developed by our students',
       category: 'Innovation',
+      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
     },
     {
       id: 5,
       title: 'Industry Partnerships',
       description: 'Collaborating with leading technology companies',
       category: 'Partnerships',
+      image: 'https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
     },
     {
       id: 6,
       title: 'Research Excellence',
       description: 'Groundbreaking research in technology and innovation',
       category: 'Research',
+      image: 'https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
+    },
+    {
+      id: 7,
+      title: 'Technology Workshop',
+      description: 'Hands-on learning with latest technologies',
+      category: 'Events',
+      image: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
+    },
+    {
+      id: 8,
+      title: 'Computer Science Lab',
+      description: 'Advanced computing facilities for students',
+      category: 'Facilities',
+      image: 'https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
+    },
+    {
+      id: 9,
+      title: 'AI & Machine Learning',
+      description: 'Cutting-edge research in artificial intelligence',
+      category: 'Research',
+      image: 'https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
+    },
+    {
+      id: 10,
+      title: 'Startup Incubation',
+      description: 'Supporting student entrepreneurs and startups',
+      category: 'Innovation',
+      image: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
+    },
+    {
+      id: 11,
+      title: 'Conference Hall',
+      description: 'Modern facilities for seminars and conferences',
+      category: 'Campus',
+      image: 'https://images.pexels.com/photos/2774570/pexels-photo-2774570.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
+    },
+    {
+      id: 12,
+      title: 'Tech Partnerships',
+      description: 'Collaboration with global technology leaders',
+      category: 'Partnerships',
+      image: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'
     },
   ];
 
@@ -160,60 +209,22 @@ const Gallery: React.FC = () => {
                 transition={{ duration: 0.5 }}
                 className="position-absolute w-100 h-100"
               >
-                {/* Placeholder for slide image */}
+                {/* Background Image */}
                 <div 
-                  className="w-100 h-100 d-flex align-items-center justify-content-center"
+                  className="w-100 h-100"
                   style={{
-                    background: theme === 'light' 
-                      ? 'linear-gradient(135deg, #eff6ff, #fef3c7, #eff6ff)' 
-                      : 'linear-gradient(135deg, #374151, #1f2937, #374151)'
+                    backgroundImage: `url(${filteredSlides[currentSlide]?.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
                   }}
-                >
-                  <div className="text-center">
-                    <div 
-                      className="rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-4"
-                      style={{
-                        width: '96px',
-                        height: '96px',
-                        background: 'linear-gradient(135deg, #3b82f6, #f59e0b)'
-                      }}
-                    >
-                      <span className="text-white fw-bold fs-3">
-                        {filteredSlides[currentSlide]?.id}
-                      </span>
-                    </div>
-                    <h3 className="h2 fw-bold mb-3" style={{
-                      color: theme === 'light' ? '#3b82f6' : '#f59e0b'
-                    }}>
-                      {filteredSlides[currentSlide]?.title}
-                    </h3>
-                    <p className="fs-5 mx-auto mb-4" style={{
-                      maxWidth: '400px',
-                      color: theme === 'light' ? '#6b7280' : '#d1d5db'
-                    }}>
-                      {filteredSlides[currentSlide]?.description}
-                    </p>
-                    <div>
-                      <span 
-                        className="badge px-3 py-2 fw-medium"
-                        style={{
-                          background: theme === 'light' 
-                            ? 'rgba(59, 130, 246, 0.1)' 
-                            : 'rgba(245, 158, 11, 0.2)',
-                          color: theme === 'light' ? '#3b82f6' : '#f59e0b'
-                        }}
-                      >
-                        {filteredSlides[currentSlide]?.category}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                />
 
                 {/* Overlay with gradient */}
                 <div 
                   className="position-absolute w-100 h-100"
                   style={{
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.3), transparent, transparent)',
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3), rgba(0,0,0,0.5))',
                     top: 0,
                     left: 0
                   }}
@@ -229,11 +240,22 @@ const Gallery: React.FC = () => {
                     <div 
                       className="rounded-3 p-4"
                       style={{
-                        background: 'rgba(0,0,0,0.2)',
+                        background: 'rgba(0,0,0,0.3)',
                         backdropFilter: 'blur(10px)'
                       }}
                     >
-                      <h3 className="h4 fw-bold mb-2">
+                      <div>
+                        <span 
+                          className="badge px-3 py-2 fw-medium mb-3"
+                          style={{
+                            background: 'linear-gradient(135deg, #3b82f6, #f59e0b)',
+                            color: '#e2e8f0'
+                          }}
+                        >
+                          {filteredSlides[currentSlide]?.category}
+                        </span>
+                      </div>
+                      <h3 className="h3 fw-bold mb-3">
                         {filteredSlides[currentSlide]?.title}
                       </h3>
                       <p className="fs-5 mb-0" style={{ opacity: 0.9 }}>
@@ -342,42 +364,44 @@ const Gallery: React.FC = () => {
                 style={{
                   aspectRatio: '1',
                   borderRadius: '12px',
-                  border: `2px solid ${
+                  border: `3px solid ${
                     currentSlide === index
                       ? theme === 'light' ? '#3b82f6' : '#f59e0b'
                       : theme === 'light' ? '#e5e7eb' : '#374151'
                   }`,
                   boxShadow: currentSlide === index
                     ? theme === 'light' 
-                      ? '0 10px 25px rgba(59, 130, 246, 0.2)' 
-                      : '0 10px 25px rgba(245, 158, 11, 0.2)'
+                      ? '0 10px 25px rgba(59, 130, 246, 0.3)' 
+                      : '0 10px 25px rgba(245, 158, 11, 0.3)'
                     : 'none'
                 }}
               >
                 <div 
-                  className="w-100 h-100 d-flex align-items-center justify-content-center"
+                  className="w-100 h-100"
                   style={{
-                    background: theme === 'light' 
-                      ? 'linear-gradient(135deg, #f3f4f6, #e5e7eb)' 
-                      : 'linear-gradient(135deg, #374151, #1f2937)'
+                    backgroundImage: `url(${slide.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
                   }}
                 >
-                  <div className="text-center">
-                    <div 
-                      className="rounded-circle d-inline-flex align-items-center justify-content-center"
+                  {/* Overlay */}
+                  <div 
+                    className="w-100 h-100 d-flex align-items-end justify-content-center p-2"
+                    style={{
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)'
+                    }}
+                  >
+                    <span 
+                      className="badge px-2 py-1 small"
                       style={{
-                        width: '32px',
-                        height: '32px',
-                        background: 'linear-gradient(135deg, #3b82f6, #f59e0b)'
+                        background: 'rgba(255,255,255,0.9)',
+                        color: '#374151',
+                        fontSize: '0.7rem'
                       }}
                     >
-                      <span className="text-white fw-bold small">{slide.id}</span>
-                    </div>
-                    <p className="small mt-1 mb-0" style={{
-                      color: theme === 'light' ? '#6b7280' : '#9ca3af'
-                    }}>
                       {slide.category}
-                    </p>
+                    </span>
                   </div>
                 </div>
               </motion.button>

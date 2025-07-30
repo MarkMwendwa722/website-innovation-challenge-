@@ -10,7 +10,7 @@ const Speakers: React.FC = () => {
       name: 'Dr. Sarah Kimani',
       title: 'Director of Innovation',
       company: 'Kenya ICT Authority',
-      image: '/api/placeholder/300/300',
+      image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       bio: 'Leading expert in digital transformation and technology policy in Kenya.',
       type: 'keynote',
     },
@@ -18,7 +18,7 @@ const Speakers: React.FC = () => {
       name: 'Prof. Michael Ochieng',
       title: 'Head of Computer Science',
       company: 'University of Nairobi',
-      image: '/api/placeholder/300/300',
+      image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       bio: 'Renowned researcher in artificial intelligence and machine learning.',
       type: 'academic',
     },
@@ -26,7 +26,7 @@ const Speakers: React.FC = () => {
       name: 'James Mwangi',
       title: 'Founder & CEO',
       company: 'TechHub Nairobi',
-      image: '/api/placeholder/300/300',
+      image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       bio: 'Serial entrepreneur and investor in African tech startups.',
       type: 'industry',
     },
@@ -34,15 +34,15 @@ const Speakers: React.FC = () => {
       name: 'Dr. Grace Wanjiku',
       title: 'Innovation Director',
       company: 'Safaricom PLC',
-      image: '/api/placeholder/300/300',
+      image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       bio: 'Pioneer in mobile technology and financial inclusion.',
       type: 'industry',
     },
     {
-      name: 'Prof. David Kariuki',
+      name: 'Prof. Diana Kariuki',
       title: 'Research Director',
       company: 'KCA University',
-      image: '/api/placeholder/300/300',
+      image: 'https://images.pexels.com/photos/1674752/pexels-photo-1674752.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       bio: 'Expert in sustainable technology and green innovation.',
       type: 'academic',
     },
@@ -50,7 +50,7 @@ const Speakers: React.FC = () => {
       name: 'Maria Rodriguez',
       title: 'Global Innovation Lead',
       company: 'Google for Startups',
-      image: '/api/placeholder/300/300',
+      image: 'https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       bio: 'International expert in startup ecosystems and technology acceleration.',
       type: 'keynote',
     },
@@ -135,7 +135,7 @@ const Speakers: React.FC = () => {
                     <div className="position-relative mb-4">
                       {/* Speaker Image */}
                       <div 
-                        className="d-flex align-items-center justify-content-center rounded-3 mb-3 position-relative"
+                        className="rounded-3 mb-3 position-relative overflow-hidden"
                         style={{
                           height: '200px',
                           background: theme === 'light' 
@@ -143,22 +143,44 @@ const Speakers: React.FC = () => {
                             : 'linear-gradient(135deg, #374151, #1f2937)'
                         }}
                       >
-                        <div className="text-center" style={{
-                          color: theme === 'light' ? '#6b7280' : '#9ca3af'
-                        }}>
-                          <div 
-                            className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
-                            style={{
-                              width: '80px',
-                              height: '80px',
-                              background: 'linear-gradient(135deg, #3b82f6, #f59e0b)'
-                            }}
-                          >
-                            <span className="text-white fw-bold fs-4">
-                              {speaker.name.split(' ').map(n => n[0]).join('')}
-                            </span>
+                        <img 
+                          src={speaker.image}
+                          alt={speaker.name}
+                          className="w-100 h-100"
+                          style={{
+                            objectFit: 'cover',
+                            objectPosition: 'center'
+                          }}
+                          onError={(e) => {
+                            // Fallback to initials if image fails to load
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const fallback = target.nextElementSibling as HTMLElement;
+                            if (fallback) fallback.style.display = 'flex';
+                          }}
+                        />
+                        {/* Fallback initials display */}
+                        <div 
+                          className="w-100 h-100 d-flex align-items-center justify-content-center"
+                          style={{ display: 'none' }}
+                        >
+                          <div className="text-center" style={{
+                            color: theme === 'light' ? '#6b7280' : '#9ca3af'
+                          }}>
+                            <div 
+                              className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
+                              style={{
+                                width: '80px',
+                                height: '80px',
+                                background: 'linear-gradient(135deg, #3b82f6, #f59e0b)'
+                              }}
+                            >
+                              <span className="text-white fw-bold fs-4">
+                                {speaker.name.split(' ').map(n => n[0]).join('')}
+                              </span>
+                            </div>
+                            <p className="small fw-medium mb-0">Speaker Photo</p>
                           </div>
-                          <p className="small fw-medium mb-0">Speaker Photo</p>
                         </div>
                       </div>
                       
@@ -194,36 +216,12 @@ const Speakers: React.FC = () => {
                         </p>
                       </div>
                       
-                      <p className="small flex-grow-1 mb-3" style={{
+                      <p className="small mb-0" style={{
                         color: theme === 'light' ? '#6b7280' : '#d1d5db',
                         lineHeight: '1.5'
                       }}>
                         {speaker.bio}
                       </p>
-
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="kca-btn kca-btn-outline w-100"
-                      >
-                        <span className="d-flex align-items-center justify-content-center">
-                          <span>View Profile</span>
-                          <svg 
-                            style={{ width: '16px', height: '16px' }} 
-                            className="ms-2" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                          >
-                            <path 
-                              strokeLinecap="round" 
-                              strokeLinejoin="round" 
-                              strokeWidth={2} 
-                              d="M9 5l7 7-7 7" 
-                            />
-                          </svg>
-                        </span>
-                      </motion.button>
                     </div>
                   </div>
                 </motion.div>

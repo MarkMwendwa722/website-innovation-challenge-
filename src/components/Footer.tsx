@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
   return (
     <footer style={{
       background: theme === 'light' ? '#1f2937' : '#0f1419',
-      color: 'white'
+      color: '#e2e8f0'
     }}>
       <div className="container">
         {/* Main Footer Content */}
@@ -78,14 +78,21 @@ const Footer: React.FC = () => {
               >
                 <div className="d-flex align-items-center gap-3">
                   <div 
-                    className="rounded-3 d-flex align-items-center justify-content-center"
+                    className="d-flex align-items-center justify-content-center"
                     style={{
                       width: '48px',
-                      height: '48px',
-                      background: 'linear-gradient(135deg, #3b82f6, #f59e0b)'
+                      height: '48px'
                     }}
                   >
-                    <span className="text-white fw-bold fs-4">K</span>
+                    <img 
+                      src="https://kcau.ac.ke/wp-content/uploads/2022/06/KCAU-logo-partial-white.svg" 
+                      alt="KCA University Logo"
+                      style={{
+                        width: '48px',
+                        height: '48px',
+                        objectFit: 'contain'
+                      }}
+                    />
                   </div>
                   <div>
                     <h3 className="h5 fw-bold mb-0">KCA University</h3>
@@ -157,13 +164,23 @@ const Footer: React.FC = () => {
                           className="text-decoration-none small"
                           style={{ 
                             color: '#d1d5db',
-                            transition: 'color 0.2s ease'
+                            transition: 'all 0.3s ease'
                           }}
                           onMouseEnter={(e) => {
-                            (e.target as HTMLElement).style.color = '#60a5fa';
+                            const target = e.target as HTMLElement;
+                            target.style.color = '#f59e0b';
+                            target.style.background = 'rgba(245, 158, 11, 0.1)';
+                            target.style.transform = 'translateY(-1px)';
+                            target.style.padding = '4px 8px';
+                            target.style.borderRadius = '6px';
                           }}
                           onMouseLeave={(e) => {
-                            (e.target as HTMLElement).style.color = '#d1d5db';
+                            const target = e.target as HTMLElement;
+                            target.style.color = '#d1d5db';
+                            target.style.background = 'transparent';
+                            target.style.transform = 'translateY(0)';
+                            target.style.padding = '0';
+                            target.style.borderRadius = '0';
                           }}
                         >
                           {link.name}
@@ -188,7 +205,10 @@ const Footer: React.FC = () => {
           >
             <div className="text-center mb-4">
               <h3 className="h4 fw-bold mb-3 text-white">Stay Updated</h3>
-              <p className={`mx-auto ${theme === 'dark' ? 'text-light' : 'text-white'}`} style={{ maxWidth: '32rem' }}>
+              <p className="mx-auto" style={{ 
+                maxWidth: '32rem',
+                color: '#d1d5db'
+              }}>
                 Get the latest updates about the innovation seminar, speaker announcements, 
                 and exclusive content delivered to your inbox.
               </p>
@@ -200,8 +220,14 @@ const Footer: React.FC = () => {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className={`form-control ${theme === 'dark' ? 'bg-dark text-white border-secondary' : 'bg-light'}`}
-                    style={{ borderTopRightRadius: '0', borderBottomRightRadius: '0' }}
+                    className="form-control"
+                    style={{ 
+                      borderTopRightRadius: '0', 
+                      borderBottomRightRadius: '0',
+                      background: theme === 'light' ? '#374151' : '#1f2937',
+                      color: '#d1d5db',
+                      borderColor: theme === 'light' ? '#4b5563' : '#374151'
+                    }}
                   />
                   <motion.button
                     whileHover={{ scale: 1.05, y: -2 }}
@@ -212,7 +238,9 @@ const Footer: React.FC = () => {
                     Subscribe
                   </motion.button>
                 </div>
-                <p className="small text-muted mt-2 text-center">
+                <p className="small mt-2 text-center" style={{
+                  color: '#9ca3af'
+                }}>
                   We respect your privacy. Unsubscribe at any time.
                 </p>
               </div>
@@ -226,45 +254,86 @@ const Footer: React.FC = () => {
             <div className="row align-items-center">
               <div className="col-md-8">
                 <div className="d-flex flex-column flex-sm-row align-items-center gap-3">
-                  <p className="mb-0 small text-muted">&copy; 2025 KCA University. All rights reserved.</p>
+                  <p className="mb-0 small" style={{
+                    color: '#9ca3af'
+                  }}>&copy; 2025 KCA University. All rights reserved.</p>
                   <div className="d-flex align-items-center gap-3">
                     <a 
                       href="#" 
-                      className="text-decoration-none small text-muted"
-                      style={{ transition: 'color 0.2s ease' }}
+                      className="text-decoration-none small"
+                      style={{ 
+                        transition: 'all 0.3s ease',
+                        color: '#9ca3af'
+                      }}
                       onMouseEnter={(e) => {
-                        (e.target as HTMLElement).style.color = '#60a5fa';
+                        const target = e.target as HTMLElement;
+                        target.style.color = '#f59e0b';
+                        target.style.background = 'rgba(245, 158, 11, 0.1)';
+                        target.style.transform = 'translateY(-1px)';
+                        target.style.padding = '4px 8px';
+                        target.style.borderRadius = '6px';
                       }}
                       onMouseLeave={(e) => {
-                        (e.target as HTMLElement).style.color = '#6c757d';
+                        const target = e.target as HTMLElement;
+                        target.style.color = '#9ca3af';
+                        target.style.background = 'transparent';
+                        target.style.transform = 'translateY(0)';
+                        target.style.padding = '0';
+                        target.style.borderRadius = '0';
                       }}
                     >
                       Privacy Policy
                     </a>
-                    <span className="text-muted">•</span>
+                    <span style={{ color: '#9ca3af' }}>•</span>
                     <a 
                       href="#" 
-                      className="text-decoration-none small text-muted"
-                      style={{ transition: 'color 0.2s ease' }}
+                      className="text-decoration-none small"
+                      style={{ 
+                        transition: 'all 0.3s ease',
+                        color: '#9ca3af'
+                      }}
                       onMouseEnter={(e) => {
-                        (e.target as HTMLElement).style.color = '#60a5fa';
+                        const target = e.target as HTMLElement;
+                        target.style.color = '#f59e0b';
+                        target.style.background = 'rgba(245, 158, 11, 0.1)';
+                        target.style.transform = 'translateY(-1px)';
+                        target.style.padding = '4px 8px';
+                        target.style.borderRadius = '6px';
                       }}
                       onMouseLeave={(e) => {
-                        (e.target as HTMLElement).style.color = '#6c757d';
+                        const target = e.target as HTMLElement;
+                        target.style.color = '#9ca3af';
+                        target.style.background = 'transparent';
+                        target.style.transform = 'translateY(0)';
+                        target.style.padding = '0';
+                        target.style.borderRadius = '0';
                       }}
                     >
                       Terms of Service
                     </a>
-                    <span className="text-muted">•</span>
+                    <span style={{ color: '#9ca3af' }}>•</span>
                     <a 
                       href="#" 
-                      className="text-decoration-none small text-muted"
-                      style={{ transition: 'color 0.2s ease' }}
+                      className="text-decoration-none small"
+                      style={{ 
+                        transition: 'all 0.3s ease',
+                        color: '#9ca3af'
+                      }}
                       onMouseEnter={(e) => {
-                        (e.target as HTMLElement).style.color = '#60a5fa';
+                        const target = e.target as HTMLElement;
+                        target.style.color = '#f59e0b';
+                        target.style.background = 'rgba(245, 158, 11, 0.1)';
+                        target.style.transform = 'translateY(-1px)';
+                        target.style.padding = '4px 8px';
+                        target.style.borderRadius = '6px';
                       }}
                       onMouseLeave={(e) => {
-                        (e.target as HTMLElement).style.color = '#6c757d';
+                        const target = e.target as HTMLElement;
+                        target.style.color = '#9ca3af';
+                        target.style.background = 'transparent';
+                        target.style.transform = 'translateY(0)';
+                        target.style.padding = '0';
+                        target.style.borderRadius = '0';
                       }}
                     >
                       Accessibility
@@ -286,7 +355,7 @@ const Footer: React.FC = () => {
                     borderRadius: '50%',
                     background: 'linear-gradient(135deg, #3b82f6, #f59e0b)',
                     border: 'none',
-                    color: 'white',
+                    color: '#e2e8f0',
                     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
                   }}
                   aria-label="Scroll to top"

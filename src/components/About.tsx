@@ -1,5 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+
+import React, { useState, useEffect } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { 
   LightBulbIcon, 
   AcademicCapIcon, 
@@ -8,45 +9,115 @@ import {
 } from '@heroicons/react/24/outline';
 import { useTheme } from '../contexts/ThemeContext';
 
+// Counter component for animated numbers
+const AnimatedCounter: React.FC<{ end: number; duration?: number; suffix?: string }> = ({ 
+  end, 
+  duration = 2000,
+  suffix = '' 
+}) => {
+  const [count, setCount] = useState(0);
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: false });
+
+  useEffect(() => {
+    if (isInView) {
+      // Reset count to 0 and start animation
+      setCount(0);
+      let startTime: number;
+      
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentCount = Math.floor(easeOutQuart * end);
+        
+        setCount(currentCount);
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          setCount(end);
+        }
+      };
+      
+      requestAnimationFrame(animate);
+    } else {
+      // Reset to 0 when out of view
+      setCount(0);
+    }
+  }, [isInView, end, duration]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
+
 const About: React.FC = () => {
   const { theme } = useTheme();
   
   const features = [
     {
       icon: LightBulbIcon,
-      title: 'Innovation Focus',
-      description: 'Explore cutting-edge technologies and innovative solutions that are shaping the future of various industries.',
+      title: 'Innovation Exhibitions',
+      description: 'Showcase research outputs, student projects, and innovative ideas with commercial potential through exhibitions and pitch competitions.',
     },
     {
       icon: AcademicCapIcon,
-      title: 'Academic Excellence',
-      description: 'Learn from renowned professors, researchers, and industry experts who are leading innovation in their fields.',
+      title: 'Research to Commercialization',
+      description: 'Build capacity among innovators on intellectual property, funding, scaling, and market access through specialized workshops.',
     },
     {
       icon: BuildingOfficeIcon,
       title: 'Industry Partnerships',
-      description: 'Connect with leading companies and startups that are driving technological advancement and creating opportunities.',
+      description: 'Connect with investors, mentors, and enterprise development support through our investor-innovator matchmaking forum.',
     },
     {
       icon: GlobeAltIcon,
-      title: 'Global Impact',
-      description: 'Understand how local innovations can have global implications and contribute to sustainable development.',
+      title: 'Sustainability Innovation',
+      description: 'Participate in our Sustainability Innovation Challenge featuring Green Tech, EduTech, AgriTech, and Health Innovation tracks.',
     },
   ];
 
   const stats = [
-    { number: '500+', label: 'Expected Attendees' },
-    { number: '50+', label: 'Industry Speakers' },
-    { number: '20+', label: 'Workshop Sessions' },
-    { number: '15+', label: 'Innovation Showcases' },
+    { number: 500, suffix: '+', label: 'Expected Attendees' },
+    { number: 50, suffix: '+', label: 'Industry Speakers' },
+    { number: 20, suffix: '+', label: 'Workshop Sessions' },
+    { number: 15, suffix: '+', label: 'Innovation Showcases' },
   ];
 
   return (
-    <section id="about" className="section-padding" style={{
-      background: theme === 'light' ? '#f8f9fa' : '#1a1a2e',
-      paddingTop: '6rem'
-    }}>
-      <div className="container">
+    <section 
+      id="about" 
+      className="section-padding position-relative overflow-hidden"
+      style={{
+        minHeight: '100vh',
+        paddingTop: '6rem'
+      }}
+    >
+      {/* Parallax Background Image */}
+      <div 
+        className="position-absolute w-100 h-100"
+        style={{
+          top: 0,
+          left: 0,
+          zIndex: 0,
+          backgroundImage: `url('https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1600')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          backgroundRepeat: 'no-repeat',
+          filter: theme === 'light' ? 'brightness(0.3)' : 'brightness(0.2)',
+        }}
+      />
+      
+      {/* Content Overlay */}
+      <div 
+        className="position-relative w-100 h-100"
+        style={{
+          zIndex: 1
+        }}
+      >
+        <div className="container">
         <div className="text-center mb-5">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -54,15 +125,19 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="display-4 fw-bold mb-4">
-              About the <span className="text-gradient">Innovation Seminar</span>
+            <h2 className="display-4 fw-bold mb-4" style={{
+              color: '#ffffff'
+            }}>
+              About the <span className="text-gradient">4th Innovation Week & Industry Summit</span>
             </h2>
             <p className="fs-5 mx-auto mb-0" style={{
-              maxWidth: '800px',
-              color: theme === 'light' ? '#6b7280' : '#d1d5db'
+              maxWidth: '900px',
+              color: '#cbd5e1'
             }}>
-              The KCA University Innovation Seminar is a premier event bringing together students, 
-              faculty, industry leaders, and innovators to explore the future of technology and entrepreneurship.
+              KCA University's flagship annual event celebrating creativity, research excellence, enterprise, 
+              and collaboration between academia, industry, government, and the community. This year's theme, 
+              "Innovate, Elevate, Impact," reflects the urgent need to transform promising ideas into viable 
+              commercial and social ventures that contribute to sustainable development.
             </p>
           </motion.div>
         </div>
@@ -78,9 +153,12 @@ const About: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="card text-center h-100"
                 style={{
-                  background: theme === 'light' ? '#ffffff' : '#16213e',
-                  border: `1px solid ${theme === 'light' ? '#e5e7eb' : '#374151'}`,
-                  transition: 'all 0.3s ease'
+                  background: theme === 'light' 
+                    ? 'rgba(255, 255, 255, 0.15)' 
+                    : 'rgba(22, 33, 62, 0.15)',
+                  border: `1px solid ${theme === 'light' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.2)'}`,
+                  transition: 'all 0.3s ease',
+                  backdropFilter: 'blur(10px)'
                 }}
                 whileHover={{ 
                   scale: 1.05, 
@@ -106,12 +184,12 @@ const About: React.FC = () => {
                     </div>
                   </div>
                   <h3 className="h5 fw-bold mb-3" style={{
-                    color: theme === 'light' ? '#3b82f6' : '#f59e0b'
+                    color: '#e2e8f0'
                   }}>
                     {feature.title}
                   </h3>
                   <p className="mb-0" style={{
-                    color: theme === 'light' ? '#6b7280' : '#d1d5db'
+                    color: '#cbd5e1'
                   }}>
                     {feature.description}
                   </p>
@@ -129,8 +207,9 @@ const About: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="card mb-5"
           style={{
-            background: theme === 'light' ? '#ffffff' : '#16213e',
-            border: `1px solid ${theme === 'light' ? '#e5e7eb' : '#374151'}`
+            background: 'rgba(255, 255, 255, 0.15)',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
+            backdropFilter: 'blur(10px)'
           }}
         >
           <div className="card-body p-5">
@@ -144,10 +223,14 @@ const About: React.FC = () => {
                     transition={{ duration: 0.8, delay: index * 0.1 }}
                   >
                     <div className="display-5 fw-bold text-gradient mb-2">
-                      {stat.number}
+                      <AnimatedCounter 
+                        end={stat.number} 
+                        suffix={stat.suffix}
+                        duration={2000 + (index * 200)}
+                      />
                     </div>
                     <div className="fw-medium" style={{
-                      color: theme === 'light' ? '#6b7280' : '#d1d5db'
+                      color: '#cbd5e1'
                     }}>
                       {stat.label}
                     </div>
@@ -187,6 +270,7 @@ const About: React.FC = () => {
             </div>
           </div>
         </motion.div>
+        </div>
       </div>
     </section>
   );

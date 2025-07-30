@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import { useTheme } from '../contexts/ThemeContext';
+import KCALogo from '../assets/KCAU_logo.svg';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,6 +30,7 @@ const Header: React.FC = () => {
            borderBottom: theme === 'light' 
              ? '3px solid #3b82f6' 
              : '3px solid #f59e0b',
+           height: '80px',
          }}>
       <div className="container-fluid">
         {/* Logo */}
@@ -40,22 +42,34 @@ const Header: React.FC = () => {
           <div 
             className="me-3 d-flex align-items-center justify-content-center"
             style={{
-              width: '48px',
-              height: '48px',
-              borderRadius: '12px',
-              background: theme === 'light' 
-                ? 'linear-gradient(135deg, #3b82f6 0%, #f59e0b 100%)' 
-                : 'linear-gradient(135deg, #f59e0b 0%, #3b82f6 100%)',
-              boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
+              width: '50px',
+              height: '40px',
+              borderRadius: '8px',
+              background: theme === 'light' ? '#ffffff' : '#374151',
+              boxShadow: theme === 'light' 
+                ? '0 4px 12px rgba(0, 0, 0, 0.1)' 
+                : '0 4px 12px rgba(0, 0, 0, 0.3)',
+              border: theme === 'light' 
+                ? '1px solid rgba(0, 0, 0, 0.05)' 
+                : '1px solid rgba(255, 255, 255, 0.1)',
+              padding: '8px',
             }}
           >
-            <span className="text-white fw-bold fs-5">KCA</span>
+            <img 
+              src={KCALogo} 
+              alt="KCA University Logo" 
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain'
+              }}
+            />
           </div>
           <div>
             <h1 
               className="mb-0 fs-4 fw-bold"
               style={{
-                color: theme === 'light' ? '#1e293b' : '#ffffff'
+                color: theme === 'light' ? '#6b7280' : '#d1d5db',
               }}
             >
               KCA University
@@ -89,17 +103,23 @@ const Header: React.FC = () => {
                 onMouseEnter={(e) => {
                   const target = e.target as HTMLElement;
                   if (theme === 'light') {
-                    target.style.background = 'linear-gradient(135deg, #3b82f6, #60a5fa)';
-                    target.style.color = 'white';
+                    target.style.background = 'rgba(59, 130, 246, 0.1)';
+                    target.style.color = '#3b82f6';
+                    target.style.transform = 'translateY(-2px)';
+                    target.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.15)';
                   } else {
-                    target.style.background = 'linear-gradient(135deg, #f59e0b, #fbbf24)';
-                    target.style.color = 'white';
+                    target.style.background = 'rgba(245, 158, 11, 0.1)';
+                    target.style.color = '#f59e0b';
+                    target.style.transform = 'translateY(-2px)';
+                    target.style.boxShadow = '0 4px 12px rgba(245, 158, 11, 0.15)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   const target = e.target as HTMLElement;
                   target.style.background = 'transparent';
                   target.style.color = theme === 'light' ? '#374151' : '#d1d5db';
+                  target.style.transform = 'translateY(0)';
+                  target.style.boxShadow = 'none';
                 }}
               >
                 {item.name}
@@ -108,27 +128,70 @@ const Header: React.FC = () => {
           </div>
           
           <div className="d-flex align-items-center gap-3">
-            {/* Theme Toggle */}
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 180 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={toggleTheme}
-              className="btn rounded-circle p-3"
+            {/* Theme Toggle Switch - Redesigned */}
+            <motion.div
+              className="position-relative"
               style={{
+                width: '80px',
+                height: '32px',
+                borderRadius: '16px',
                 background: theme === 'light'
-                  ? 'linear-gradient(135deg, #dbeafe, #bfdbfe)'
-                  : 'linear-gradient(135deg, #451a03, #78350f)',
-                color: theme === 'light' ? '#1d4ed8' : '#f59e0b',
+                  ? '#e5e7eb'
+                  : '#374151',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
                 border: 'none',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+                boxShadow: theme === 'light' 
+                  ? 'inset 0 2px 4px rgba(0, 0, 0, 0.1)' 
+                  : 'inset 0 2px 4px rgba(0, 0, 0, 0.3)',
+                padding: '2px'
               }}
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {theme === 'light' ? (
-                <MoonIcon style={{ width: '20px', height: '20px' }} />
-              ) : (
-                <SunIcon style={{ width: '20px', height: '20px' }} />
-              )}
-            </motion.button>
+              {/* Sliding Button with Icon */}
+              <motion.div
+                className="position-absolute d-flex align-items-center justify-content-center"
+                style={{
+                  width: '28px',
+                  height: '28px',
+                  borderRadius: '14px',
+                  top: '2px',
+                  background: theme === 'light' 
+                    ? 'linear-gradient(135deg, #fbbf24, #f59e0b)' 
+                    : 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+                  boxShadow: '0 6px 8px rgba(0, 0, 0, 0.2)',
+                  border: 'none'
+                }}
+                animate={{
+                  x: theme === 'light' ? 2 : 47
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }}
+              >
+                {theme === 'light' ? (
+                  <SunIcon 
+                    style={{ 
+                      width: '16px', 
+                      height: '16px',
+                      color: '#e2e8f0'
+                    }} 
+                  />
+                ) : (
+                  <MoonIcon 
+                    style={{ 
+                      width: '16px', 
+                      height: '16px',
+                      color: '#e2e8f0'
+                    }} 
+                  />
+                )}
+              </motion.div>
+            </motion.div>
 
             {/* Register Button */}
             <motion.button
@@ -136,6 +199,10 @@ const Header: React.FC = () => {
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
               className="kca-btn kca-btn-primary kca-btn-sm"
+              style={{
+                width: '125px',
+                height: '60px',
+              }}
             >
               Register Now
             </motion.button>
@@ -144,25 +211,70 @@ const Header: React.FC = () => {
 
         {/* Mobile menu button */}
         <div className="d-flex d-lg-none align-items-center gap-3">
-          <motion.button
-            whileHover={{ scale: 1.1, rotate: 180 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={toggleTheme}
-            className="btn rounded-circle p-3"
+          {/* Mobile Theme Toggle Switch - Redesigned */}
+          <motion.div
+            className="position-relative"
             style={{
+              width: '56px',
+              height: '30px',
+              borderRadius: '15px',
               background: theme === 'light'
-                ? 'linear-gradient(135deg, #dbeafe, #bfdbfe)'
-                : 'linear-gradient(135deg, #451a03, #78350f)',
-              color: theme === 'light' ? '#1d4ed8' : '#f59e0b',
+                ? '#e5e7eb'
+                : '#374151',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
               border: 'none',
+              boxShadow: theme === 'light' 
+                ? 'inset 0 2px 4px rgba(0, 0, 0, 0.1)' 
+                : 'inset 0 2px 4px rgba(0, 0, 0, 0.3)',
+              padding: '2px'
             }}
+            onClick={toggleTheme}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {theme === 'light' ? (
-              <MoonIcon style={{ width: '20px', height: '20px' }} />
-            ) : (
-              <SunIcon style={{ width: '20px', height: '20px' }} />
-            )}
-          </motion.button>
+            {/* Sliding Button with Icon */}
+            <motion.div
+              className="position-absolute d-flex align-items-center justify-content-center"
+              style={{
+                width: '26px',
+                height: '26px',
+                borderRadius: '13px',
+                top: '2px',
+                background: theme === 'light' 
+                  ? 'linear-gradient(135deg, #fbbf24, #f59e0b)' 
+                  : 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
+                border: 'none'
+              }}
+              animate={{
+                x: theme === 'light' ? 2 : 25
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20
+              }}
+            >
+              {theme === 'light' ? (
+                <SunIcon 
+                  style={{ 
+                    width: '14px', 
+                    height: '14px',
+                    color: '#e2e8f0'
+                  }} 
+                />
+              ) : (
+                <MoonIcon 
+                  style={{ 
+                    width: '14px', 
+                    height: '14px',
+                    color: '#e2e8f0'
+                  }} 
+                />
+              )}
+            </motion.div>
+          </motion.div>
           
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -222,17 +334,23 @@ const Header: React.FC = () => {
                 onMouseEnter={(e) => {
                   const target = e.target as HTMLElement;
                   if (theme === 'light') {
-                    target.style.background = 'linear-gradient(135deg, #3b82f6, #60a5fa)';
-                    target.style.color = 'white';
+                    target.style.background = 'rgba(59, 130, 246, 0.1)';
+                    target.style.color = '#3b82f6';
+                    target.style.transform = 'translateY(-2px)';
+                    target.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.15)';
                   } else {
-                    target.style.background = 'linear-gradient(135deg, #f59e0b, #fbbf24)';
-                    target.style.color = 'white';
+                    target.style.background = 'rgba(245, 158, 11, 0.1)';
+                    target.style.color = '#f59e0b';
+                    target.style.transform = 'translateY(-2px)';
+                    target.style.boxShadow = '0 4px 12px rgba(245, 158, 11, 0.15)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   const target = e.target as HTMLElement;
                   target.style.background = 'transparent';
                   target.style.color = theme === 'light' ? '#374151' : '#d1d5db';
+                  target.style.transform = 'translateY(0)';
+                  target.style.boxShadow = 'none';
                 }}
               >
                 {item.name}

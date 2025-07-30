@@ -10,7 +10,7 @@ const Schedule: React.FC = () => {
   const scheduleData = [
     {
       day: 'Day 1',
-      date: 'March 15, 2025',
+      date: 'October 28, 2025',
       events: [
         {
           time: '08:00 - 09:00',
@@ -22,62 +22,62 @@ const Schedule: React.FC = () => {
         {
           time: '09:00 - 09:30',
           title: 'Opening Ceremony',
-          speaker: 'Prof. Jane Karanja, Vice Chancellor',
+          speaker: 'Prof. Isaiah I.C. Wakindiki, Vice Chancellor',
           location: 'Main Auditorium',
           type: 'ceremony',
         },
         {
           time: '09:30 - 10:30',
-          title: 'Keynote: The Future of Innovation in Africa',
-          speaker: 'Dr. Sarah Kimani',
+          title: 'Keynote: Innovate, Elevate, Impact - Building Kenya\'s Future Today',
+          speaker: 'Prof. Vincent Onywera, DVC Research, Innovation & Outreach',
           location: 'Main Auditorium',
           type: 'keynote',
         },
         {
           time: '10:30 - 11:00',
-          title: 'Coffee Break & Networking',
+          title: 'Coffee Break & Innovation Exhibition',
           speaker: '',
           location: 'Exhibition Hall',
           type: 'break',
         },
         {
-          time: '11:00 - 12:00',
-          title: 'Panel: AI and Machine Learning in Kenya',
-          speaker: 'Prof. Michael Ochieng & Others',
+          time: '11:00 - 12:30',
+          title: 'Innovation Pitch Competition',
+          speaker: 'Student & Faculty Innovators',
           location: 'Main Auditorium',
           type: 'panel',
         },
         {
-          time: '12:00 - 13:00',
-          title: 'Workshop: Building Your First Startup',
-          speaker: 'James Mwangi',
+          time: '12:30 - 13:00',
+          title: 'Startup & IP Clinic Session 1',
+          speaker: 'IP & Legal Experts',
           location: 'Workshop Room A',
           type: 'workshop',
         },
         {
           time: '13:00 - 14:00',
-          title: 'Lunch & Exhibition',
+          title: 'Lunch & Innovation Exhibition',
           speaker: '',
           location: 'Exhibition Hall',
           type: 'break',
         },
         {
-          time: '14:00 - 15:00',
-          title: 'Innovation Showcase',
-          speaker: 'Student Teams',
+          time: '14:00 - 15:30',
+          title: 'Panel: Academia-Industry Collaboration',
+          speaker: 'Industry Leaders & Policy Makers',
           location: 'Main Auditorium',
-          type: 'showcase',
+          type: 'panel',
         },
         {
-          time: '15:00 - 16:00',
-          title: 'Industry Talk: Fintech Revolution',
-          speaker: 'Dr. Grace Wanjiku',
-          location: 'Main Auditorium',
+          time: '15:30 - 16:30',
+          title: 'Women in Innovation Track',
+          speaker: 'Female Innovators & Entrepreneurs',
+          location: 'Conference Room B',
           type: 'talk',
         },
         {
-          time: '16:00 - 17:00',
-          title: 'Networking & Closing Remarks',
+          time: '16:30 - 17:00',
+          title: 'Day 1 Networking & Exhibition',
           speaker: '',
           location: 'Exhibition Hall',
           type: 'networking',
@@ -86,68 +86,116 @@ const Schedule: React.FC = () => {
     },
     {
       day: 'Day 2',
-      date: 'March 16, 2025',
+      date: 'October 29, 2025',
       events: [
         {
           time: '09:00 - 09:30',
-          title: 'Day 2 Welcome',
+          title: 'Day 2 Opening & Agenda Overview',
           speaker: 'Event Team',
           location: 'Main Auditorium',
           type: 'ceremony',
         },
         {
-          time: '09:30 - 10:30',
-          title: 'Keynote: Global Innovation Trends',
-          speaker: 'Maria Rodriguez',
+          time: '09:30 - 11:00',
+          title: 'Research to Commercialization Workshop',
+          speaker: 'Kenya Innovation Agency (KeNIA)',
           location: 'Main Auditorium',
-          type: 'keynote',
+          type: 'workshop',
         },
         {
-          time: '10:30 - 11:00',
-          title: 'Coffee Break',
+          time: '11:00 - 11:30',
+          title: 'Coffee Break & Exhibitions',
           speaker: '',
           location: 'Exhibition Hall',
           type: 'break',
         },
         {
-          time: '11:00 - 12:00',
-          title: 'Workshop: Sustainable Technology',
-          speaker: 'Prof. David Kariuki',
-          location: 'Workshop Room B',
-          type: 'workshop',
-        },
-        {
-          time: '12:00 - 13:00',
-          title: 'Investor Panel: Funding Your Innovation',
-          speaker: 'Investment Community',
+          time: '11:30 - 13:00',
+          title: 'Sustainability Innovation Challenge Presentations',
+          speaker: 'Green Tech, AgriTech, Health Innovation Teams',
           location: 'Main Auditorium',
-          type: 'panel',
+          type: 'showcase',
         },
         {
           time: '13:00 - 14:00',
-          title: 'Lunch & Sponsor Presentations',
+          title: 'Lunch & Industry Partner Showcases',
           speaker: '',
           location: 'Exhibition Hall',
           type: 'break',
         },
         {
           time: '14:00 - 15:30',
-          title: 'Hackathon Presentations',
-          speaker: 'Participant Teams',
-          location: 'Main Auditorium',
-          type: 'showcase',
+          title: 'Investor-Innovator Matchmaking Forum',
+          speaker: 'Investors, Angels & Innovators',
+          location: 'Conference Rooms A & B',
+          type: 'panel',
         },
         {
-          time: '15:30 - 16:00',
-          title: 'Awards & Recognition',
-          speaker: 'Event Committee',
+          time: '15:30 - 16:30',
+          title: 'EduTech Innovation Track',
+          speaker: 'Educational Technology Experts',
+          location: 'Workshop Room A',
+          type: 'talk',
+        },
+        {
+          time: '16:30 - 17:00',
+          title: 'Day 2 Wrap-up & Networking',
+          speaker: '',
+          location: 'Main Auditorium',
+          type: 'ceremony',
+        },
+      ],
+    },
+    {
+      day: 'Day 3',
+      date: 'October 30, 2025',
+      events: [
+        {
+          time: '09:00 - 09:30',
+          title: 'Day 3 Opening & Achievements Review',
+          speaker: 'Event Organizing Committee',
           location: 'Main Auditorium',
           type: 'ceremony',
         },
         {
-          time: '16:00 - 17:00',
-          title: 'Closing Ceremony & Future Plans',
-          speaker: 'University Leadership',
+          time: '09:30 - 11:00',
+          title: 'Final Innovation Pitch Competition & Awards',
+          speaker: 'Top Innovation Teams',
+          location: 'Main Auditorium',
+          type: 'showcase',
+        },
+        {
+          time: '11:00 - 11:30',
+          title: 'Coffee Break & Final Exhibitions',
+          speaker: '',
+          location: 'Exhibition Hall',
+          type: 'break',
+        },
+        {
+          time: '11:30 - 12:30',
+          title: 'Panel: Building Kenya\'s Innovation Ecosystem',
+          speaker: 'Government, Academia & Industry Leaders',
+          location: 'Main Auditorium',
+          type: 'panel',
+        },
+        {
+          time: '12:30 - 13:00',
+          title: 'Strategic Partnerships & Future Commitments',
+          speaker: 'University Leadership & Partners',
+          location: 'Main Auditorium',
+          type: 'talk',
+        },
+        {
+          time: '13:00 - 14:00',
+          title: 'Closing Lunch & Final Networking',
+          speaker: '',
+          location: 'Exhibition Hall',
+          type: 'break',
+        },
+        {
+          time: '14:00 - 15:00',
+          title: 'Closing Ceremony & Way Forward',
+          speaker: 'Prof. Isaiah I.C. Wakindiki & Distinguished Guests',
           location: 'Main Auditorium',
           type: 'ceremony',
         },
@@ -193,11 +241,11 @@ const Schedule: React.FC = () => {
               Event <span className="text-gradient">Schedule</span>
             </h2>
             <p className="fs-5 mx-auto mb-0" style={{
-              maxWidth: '800px',
+              maxWidth: '900px',
               color: theme === 'light' ? '#6b7280' : '#d1d5db'
             }}>
-              Two days packed with inspiring talks, hands-on workshops, networking opportunities, 
-              and innovation showcases.
+              Three days packed with innovation exhibitions, research commercialization workshops, 
+              industry partnerships, investor matchmaking, and sustainability challenges.
             </p>
           </motion.div>
         </div>
@@ -232,7 +280,33 @@ const Schedule: React.FC = () => {
                   color: selectedDay === index 
                     ? 'white'
                     : (theme === 'light' ? '#374151' : '#d1d5db'),
-                  minWidth: '150px'
+                  minWidth: '150px',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  if (selectedDay !== index) {
+                    const target = e.currentTarget;
+                    if (theme === 'light') {
+                      target.style.background = 'rgba(59, 130, 246, 0.1)';
+                      target.style.color = '#3b82f6';
+                      target.style.transform = 'translateY(-2px)';
+                      target.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.15)';
+                    } else {
+                      target.style.background = 'rgba(245, 158, 11, 0.1)';
+                      target.style.color = '#f59e0b';
+                      target.style.transform = 'translateY(-2px)';
+                      target.style.boxShadow = '0 4px 12px rgba(245, 158, 11, 0.15)';
+                    }
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedDay !== index) {
+                    const target = e.currentTarget;
+                    target.style.background = 'transparent';
+                    target.style.color = theme === 'light' ? '#374151' : '#d1d5db';
+                    target.style.transform = 'translateY(0)';
+                    target.style.boxShadow = 'none';
+                  }
                 }}
               >
                 <div className="position-relative">

@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
       title: 'Email Us',
       details: [
         'innovation@kca.ac.ke',
-        'events@kca.ac.ke',
+        'partnerships@kca.ac.ke',
         'info@kca.ac.ke'
       ],
     },
@@ -124,11 +124,12 @@ const Contact: React.FC = () => {
               Get in <span className="text-gradient">Touch</span>
             </h2>
             <p className="fs-5 mx-auto mb-0" style={{
-              maxWidth: '600px',
+              maxWidth: '700px',
               color: theme === 'light' ? '#6b7280' : '#d1d5db'
             }}>
-              Have questions about the seminar? Want to participate or sponsor? 
-              We'd love to hear from you and help you be part of this innovation journey.
+              Have questions about the 4th Innovation Week & Industry Summit? Want to participate, 
+              exhibit, or sponsor? We'd love to hear from you and help you be part of this transformative 
+              innovation journey.
             </p>
           </motion.div>
         </div>
@@ -365,7 +366,7 @@ const Contact: React.FC = () => {
                                   : 'linear-gradient(135deg, #f59e0b, #3b82f6)'
                               }}
                             >
-                              <info.icon style={{ width: '24px', height: '24px', color: 'white' }} />
+                              <info.icon style={{ width: '24px', height: '24px', color: '#e2e8f0' }} />
                             </div>
                           </div>
                           <div>
@@ -412,7 +413,7 @@ const Contact: React.FC = () => {
                         ? 'linear-gradient(135deg, #3b82f6, #60a5fa)' 
                         : 'linear-gradient(135deg, #f59e0b, #fbbf24)',
                       border: 'none',
-                      color: 'white'
+                      color: '#e2e8f0'
                     }}
                   >
                     <div className="card-body p-4">

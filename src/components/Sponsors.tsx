@@ -2,6 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 
+// Import logos from assets
+import EquityLogo from '../assets/Equity Bank Uganda Logo PNG Vector (PDF) Free Download.jpg';
+import KCBLogo from '../assets/KCB Bank Uganda Logo PNG Vector (PDF) Free Download.jpg';
+import StrathmoreImage from '../assets/Strathmore.jpg';
+import USIULogo from '../assets/United States International University - Africa Logo PNG Vector (EPS) Free Download.jpg';
+
 const Sponsors: React.FC = () => {
   const { theme } = useTheme();
   
@@ -15,7 +21,7 @@ const Sponsors: React.FC = () => {
     },
     { 
       name: 'Equity Bank', 
-      logo: 'https://equitygroupholdings.com/ke/',
+      logo: EquityLogo,
       fallback: 'EQUITY',
       website: 'https://equitybank.co.ke'
     },
@@ -38,44 +44,14 @@ const Sponsors: React.FC = () => {
       website: 'https://ibm.com'
     },
     { 
-      name: 'TechHub Nairobi', 
-      logo: 'https://techcrunch.com/wp-content/uploads/2018/11/techhub.png',
-      fallback: 'TECHHUB',
-      website: 'https://techhub.com'
-    },
-    { 
-      name: 'iHub', 
-      logo: 'https://ihub.co.ke/assets/img/ihub-logo.png',
-      fallback: 'iHUB',
-      website: 'https://ihub.co.ke'
-    },
-    { 
-      name: 'Nailab', 
-      logo: 'https://nailab.co.ke/wp-content/uploads/2020/06/nailab-logo.png',
-      fallback: 'NAILAB',
-      website: 'https://nailab.co.ke'
-    },
-    { 
       name: 'USIU-Africa', 
-      logo: 'https://www.usiu.ac.ke/images/logo.png',
+      logo: USIULogo,
       fallback: 'USIU',
       website: 'https://usiu.ac.ke'
     },
     { 
-      name: 'Kenya ICT Authority', 
-      logo: 'https://icta.go.ke/wp-content/uploads/2019/09/icta-logo.png',
-      fallback: 'KICTA',
-      website: 'https://icta.go.ke'
-    },
-    { 
-      name: 'Konza Technopolis', 
-      logo: 'https://konzacity.go.ke/wp-content/uploads/2021/01/konza-logo.png',
-      fallback: 'KONZA',
-      website: 'https://konzacity.go.ke'
-    },
-    { 
       name: 'Strathmore University', 
-      logo: 'https://strathmore.edu/assets/images/strathmore-logo.png',
+      logo: StrathmoreImage,
       fallback: 'STRATHMORE',
       website: 'https://strathmore.edu'
     },
@@ -87,7 +63,7 @@ const Sponsors: React.FC = () => {
     },
     { 
       name: 'KCB Bank', 
-      logo: 'https://1000logos.net/wp-content/uploads/2021/05/KCB-Bank-Logo.png',
+      logo: KCBLogo,
       fallback: 'KCB',
       website: 'https://kcbgroup.com'
     },
@@ -108,19 +84,19 @@ const Sponsors: React.FC = () => {
       className="py-5"
       style={{
         background: theme === 'light' 
-          ? 'linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%)' 
-          : 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)',
+          ? 'linear-gradient(180deg, #fafbff 0%, #f1f5f9 50%, #ffffff 100%)' 
+          : 'linear-gradient(180deg, #0a0a0f 0%, #111827 50%, #1f2937 100%)',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
-      {/* Background Elements */}
+      {/* Geometric Background Pattern */}
       <div 
         className="position-absolute w-100 h-100"
         style={{
-          background: theme === 'light'
-            ? 'radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)'
-            : 'radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.2) 0%, transparent 50%)',
+          backgroundImage: theme === 'light'
+            ? `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            : `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           top: 0,
           left: 0,
           zIndex: 1
@@ -128,164 +104,156 @@ const Sponsors: React.FC = () => {
       />
 
       <div className="container position-relative" style={{ zIndex: 2 }}>
-        {/* Header */}
+        {/* Redesigned Header */}
         <div className="text-center mb-5">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: false }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
             <motion.div
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="d-inline-block mb-3"
+              initial={{ scale: 0, rotate: -180 }}
+              whileInView={{ scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 200 }}
+              className="d-inline-flex align-items-center gap-2 mb-4 px-4 py-2"
+              style={{
+                background: theme === 'light'
+                  ? 'linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(245, 158, 11, 0.08))'
+                  : 'linear-gradient(45deg, rgba(59, 130, 246, 0.15), rgba(245, 158, 11, 0.12))',
+                border: `2px solid ${theme === 'light' ? 'rgba(59, 130, 246, 0.3)' : 'rgba(245, 158, 11, 0.4)'}`,
+                borderRadius: '50px',
+                backdropFilter: 'blur(10px)'
+              }}
             >
+              <span style={{ fontSize: '20px' }}>🤝</span>
               <span 
-                className="badge px-4 py-2 rounded-pill fw-medium"
+                className="fw-semibold"
                 style={{
-                  background: theme === 'light'
-                    ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(245, 158, 11, 0.1))'
-                    : 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(245, 158, 11, 0.2))',
-                  border: `1px solid ${theme === 'light' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(245, 158, 11, 0.3)'}`,
                   color: theme === 'light' ? '#3b82f6' : '#f59e0b',
-                  fontSize: '14px'
+                  fontSize: '16px'
                 }}
               >
-                ✨ Trusted Partners
+                Strategic Partners
               </span>
             </motion.div>
             
-            <h2 className="display-3 fw-bold mb-4" style={{ 
-              background: 'linear-gradient(135deg, #3b82f6, #f59e0b)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              lineHeight: '1.2'
-            }}>
-              Our Innovation <br />
-              <span style={{
-                color: theme === 'light' ? '#1e293b' : '#ffffff',
-                fontWeight: 'bold'
-              }}>
-                Ecosystem
-              </span>
-            </h2>
-            
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="fs-5 mx-auto mb-0" 
-              style={{
-                maxWidth: '700px',
-                color: theme === 'light' ? '#64748b' : '#cbd5e1',
-                lineHeight: '1.6'
+            <motion.h2 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="display-2 fw-bold mb-4" 
+              style={{ 
+                color: theme === 'light' ? '#1e293b' : '#e2e8f0',
+                lineHeight: '1.1',
+                textAlign: 'center'
               }}
             >
-              Powered by industry leaders and innovators who believe in shaping Kenya's technological future
+              Innovating Together for{' '}
+              <span style={{
+                background: 'linear-gradient(135deg, #3b82f6, #f59e0b)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>
+                Tomorrow
+              </span>
+            </motion.h2>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="fs-4 mx-auto mb-0" 
+              style={{
+                maxWidth: '800px',
+                color: theme === 'light' ? '#64748b' : '#cbd5e1',
+                lineHeight: '1.7',
+                fontWeight: '300'
+              }}
+            >
+              Collaborating with industry leaders, government agencies, and development partners 
+              to strengthen our innovation ecosystem. From Kenya Innovation Agency to leading 
+              universities and financial institutions, we're building Kenya's future together.
             </motion.p>
           </motion.div>
         </div>
 
-        {/* Modern Bento-style Grid */}
+        {/* Modern Card-based Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: false }}
+          transition={{ duration: 1, delay: 0.3 }}
           className="mb-5"
         >
-          <div className="row g-4">
+          <div className="row g-3">
             {allSponsors.map((sponsor, index) => (
               <motion.div
                 key={sponsor.name}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: false }}
                 transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  ease: "easeOut"
+                  duration: 0.7, 
+                  delay: index * 0.08,
+                  type: "spring",
+                  stiffness: 100
                 }}
-                className={`${
-                  index % 5 === 0 ? 'col-lg-6 col-md-6' : 
-                  index % 5 === 1 ? 'col-lg-3 col-md-6' :
-                  index % 5 === 2 ? 'col-lg-3 col-md-6' :
-                  index % 5 === 3 ? 'col-lg-4 col-md-6' :
-                  'col-lg-8 col-md-6'
-                } col-12`}
+                className="col-lg-3 col-md-4 col-sm-6 col-12"
               >
                 <motion.div
                   whileHover={{ 
-                    scale: 1.02, 
-                    y: -8,
-                    rotateY: 5,
-                    rotateX: 5
+                    y: -10,
+                    scale: 1.02,
+                    transition: { duration: 0.3, ease: "easeOut" }
                   }}
                   whileTap={{ scale: 0.98 }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 400, 
-                    damping: 10 
-                  }}
-                  className="card border-0 h-100 position-relative overflow-hidden"
+                  className="position-relative overflow-hidden h-100"
                   style={{
                     background: theme === 'light' 
-                      ? 'linear-gradient(135deg, #ffffff 0%, rgba(248, 250, 252, 0.8) 100%)'
-                      : 'linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%)',
-                    backdropFilter: 'blur(20px)',
-                    border: `1px solid ${theme === 'light' ? 'rgba(226, 232, 240, 0.8)' : 'rgba(71, 85, 105, 0.3)'}`,
-                    borderRadius: '20px',
+                      ? 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)'
+                      : 'linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%)',
+                    border: `1px solid ${theme === 'light' ? 'rgba(226, 232, 240, 0.8)' : 'rgba(71, 85, 105, 0.6)'}`,
+                    borderRadius: '16px',
                     boxShadow: theme === 'light' 
-                      ? '0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06)'
-                      : '0 20px 40px rgba(0, 0, 0, 0.4), 0 8px 16px rgba(245, 158, 11, 0.1)',
+                      ? '0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1)'
+                      : '0 4px 20px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(245, 158, 11, 0.1)',
                     cursor: 'pointer',
-                    transformStyle: 'preserve-3d'
+                    minHeight: '180px'
                   }}
                   onClick={() => window.open(sponsor.website, '_blank')}
                 >
-                  {/* Gradient overlay on hover */}
-                  <motion.div
-                    className="position-absolute w-100 h-100"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
+                  {/* Subtle corner accent */}
+                  <div
+                    className="position-absolute"
                     style={{
-                      background: `linear-gradient(135deg, ${theme === 'light' ? 'rgba(59, 130, 246, 0.05)' : 'rgba(245, 158, 11, 0.1)'} 0%, transparent 100%)`,
-                      borderRadius: '20px',
-                      zIndex: 1
+                      top: 0,
+                      right: 0,
+                      width: '40px',
+                      height: '40px',
+                      background: `linear-gradient(135deg, ${theme === 'light' ? 'rgba(59, 130, 246, 0.1)' : 'rgba(245, 158, 11, 0.2)'}, transparent)`,
+                      borderRadius: '0 16px 0 40px'
                     }}
                   />
-
-                  <div 
-                    className="card-body d-flex flex-column align-items-center justify-content-center text-center position-relative"
-                    style={{
-                      padding: index % 5 === 0 || index % 5 === 4 ? '3rem 2rem' : '2rem 1.5rem',
-                      zIndex: 2
-                    }}
-                  >
-                    {/* Logo container with enhanced styling */}
+                  
+                  <div className="p-4 d-flex flex-column align-items-center justify-content-center h-100 text-center">
+                    {/* Logo */}
                     <motion.div
-                      whileHover={{ scale: 1.1, rotateY: 10 }}
-                      transition={{ type: "spring", stiffness: 400 }}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
                       className="mb-3"
                     >
                       <div 
-                        className="d-flex align-items-center justify-content-center mx-auto position-relative"
+                        className="d-flex align-items-center justify-content-center mx-auto"
                         style={{
-                          width: index % 5 === 0 || index % 5 === 4 ? '100px' : '80px',
-                          height: index % 5 === 0 || index % 5 === 4 ? '100px' : '80px',
+                          width: '80px',
+                          height: '80px',
                           background: theme === 'light' 
-                            ? 'linear-gradient(135deg, rgba(248, 250, 252, 0.8), rgba(241, 245, 249, 0.6))'
+                            ? 'linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.7))'
                             : 'linear-gradient(135deg, rgba(51, 65, 85, 0.6), rgba(30, 41, 59, 0.8))',
-                          border: `2px solid ${theme === 'light' ? 'rgba(226, 232, 240, 0.6)' : 'rgba(71, 85, 105, 0.4)'}`,
-                          borderRadius: '16px',
-                          backdropFilter: 'blur(10px)',
-                          boxShadow: theme === 'light'
-                            ? 'inset 0 2px 4px rgba(0, 0, 0, 0.06)'
-                            : 'inset 0 2px 4px rgba(245, 158, 11, 0.1)'
+                          borderRadius: '12px',
+                          border: `1px solid ${theme === 'light' ? 'rgba(226, 232, 240, 0.5)' : 'rgba(71, 85, 105, 0.4)'}`,
                         }}
                       >
                         <img 
@@ -293,11 +261,10 @@ const Sponsors: React.FC = () => {
                           alt={sponsor.name}
                           className="img-fluid"
                           style={{ 
-                            width: index % 5 === 0 || index % 5 === 4 ? '70px' : '55px',
-                            height: index % 5 === 0 || index % 5 === 4 ? '70px' : '55px',
+                            width: '60px',
+                            height: '60px',
                             objectFit: 'contain',
-                            filter: theme === 'dark' ? 'brightness(1.1) contrast(1.1)' : 'none',
-                            transition: 'all 0.3s ease'
+                            filter: theme === 'dark' ? 'brightness(1.1)' : 'none'
                           }}
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
@@ -309,11 +276,11 @@ const Sponsors: React.FC = () => {
                         <div 
                           className="d-none align-items-center justify-content-center text-white fw-bold"
                           style={{
-                            width: index % 5 === 0 || index % 5 === 4 ? '70px' : '55px',
-                            height: index % 5 === 0 || index % 5 === 4 ? '70px' : '55px',
+                            width: '60px',
+                            height: '60px',
                             background: 'linear-gradient(135deg, #3b82f6, #f59e0b)',
-                            borderRadius: '12px',
-                            fontSize: index % 5 === 0 || index % 5 === 4 ? '12px' : '10px'
+                            borderRadius: '8px',
+                            fontSize: '10px'
                           }}
                         >
                           {sponsor.fallback}
@@ -321,33 +288,25 @@ const Sponsors: React.FC = () => {
                       </div>
                     </motion.div>
                     
-                    {/* Sponsor name with enhanced typography */}
-                    <motion.h5 
-                      className="fw-bold mb-0 text-center" 
+                    {/* Company Name */}
+                    <h6 
+                      className="fw-semibold mb-2" 
                       style={{
-                        color: theme === 'light' ? '#1e293b' : '#f1f5f9',
-                        fontSize: index % 5 === 0 || index % 5 === 4 ? '18px' : '15px',
-                        lineHeight: '1.3',
-                        letterSpacing: '-0.02em'
+                        color: theme === 'light' ? '#1e293b' : '#cbd5e1',
+                        fontSize: '14px',
+                        lineHeight: '1.4'
                       }}
-                      whileHover={{
-                        color: '#3b82f6'
-                      }}
-                      transition={{ duration: 0.3 }}
                     >
                       {sponsor.name}
-                    </motion.h5>
+                    </h6>
 
-                    {/* Subtle accent line */}
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileHover={{ width: '60%' }}
-                      transition={{ duration: 0.4, ease: "easeOut" }}
+                    {/* Small indicator dot */}
+                    <div
                       style={{
-                        height: '2px',
-                        background: 'linear-gradient(90deg, #3b82f6, #f59e0b)',
-                        borderRadius: '1px',
-                        marginTop: '0.75rem'
+                        width: '4px',
+                        height: '4px',
+                        borderRadius: '50%',
+                        background: theme === 'light' ? '#3b82f6' : '#f59e0b'
                       }}
                     />
                   </div>
@@ -357,225 +316,77 @@ const Sponsors: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Modern Partnership CTA */}
+        {/* Partnership CTA - Redesigned */}
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-center"
         >
           <div 
-            className="card border-0 position-relative overflow-hidden"
+            className="row align-items-center"
             style={{
               background: theme === 'light' 
-                ? 'linear-gradient(135deg, #ffffff 0%, rgba(59, 130, 246, 0.02) 50%, rgba(245, 158, 11, 0.02) 100%)'
-                : 'linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(22, 33, 62, 0.9) 100%)',
-              backdropFilter: 'blur(20px)',
-              border: `1px solid ${theme === 'light' ? 'rgba(226, 232, 240, 0.6)' : 'rgba(71, 85, 105, 0.3)'}`,
-              borderRadius: '24px',
-              boxShadow: theme === 'light'
-                ? '0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1)'
-                : '0 25px 50px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(245, 158, 11, 0.2)'
+                ? 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)'
+                : 'linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%)',
+              border: `1px solid ${theme === 'light' ? 'rgba(226, 232, 240, 0.8)' : 'rgba(71, 85, 105, 0.4)'}`,
+              borderRadius: '20px',
+              padding: '3rem 2rem'
             }}
           >
-            {/* Animated background patterns */}
-            <div className="position-absolute w-100 h-100">
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="position-absolute"
-                style={{
-                  width: '200px',
-                  height: '200px',
-                  borderRadius: '50%',
-                  background: `linear-gradient(45deg, ${theme === 'light' ? 'rgba(59, 130, 246, 0.05)' : 'rgba(59, 130, 246, 0.1)'}, transparent)`,
-                  top: '-100px',
-                  right: '-100px'
-                }}
-              />
-              <motion.div
-                animate={{
-                  scale: [1.2, 1, 1.2],
-                  rotate: [360, 180, 0],
-                }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="position-absolute"
-                style={{
-                  width: '150px',
-                  height: '150px',
-                  borderRadius: '50%',
-                  background: `linear-gradient(45deg, ${theme === 'light' ? 'rgba(245, 158, 11, 0.05)' : 'rgba(245, 158, 11, 0.1)'}, transparent)`,
-                  bottom: '-75px',
-                  left: '-75px'
-                }}
-              />
-            </div>
-
-            <div className="card-body position-relative" style={{ padding: '4rem 2rem', zIndex: 2 }}>
-              <motion.div
-                initial={{ scale: 0.9 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="d-inline-block mb-4"
-              >
-                <span 
-                  className="badge px-4 py-2 rounded-pill fw-medium"
-                  style={{
-                    background: 'linear-gradient(135deg, #3b82f6, #f59e0b)',
-                    color: 'white',
-                    fontSize: '14px',
-                    boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)'
-                  }}
-                >
-                  🚀 Join Our Ecosystem
-                </span>
-              </motion.div>
-
+            <div className="col-lg-8 text-lg-start text-center mb-4 mb-lg-0">
               <motion.h3 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="display-5 fw-bold mb-4"
+                className="h2 fw-bold mb-3"
                 style={{
-                  background: 'linear-gradient(135deg, #1e293b, #3b82f6, #f59e0b)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  lineHeight: '1.2'
+                  color: theme === 'light' ? '#1e293b' : '#e2e8f0'
                 }}
               >
-                Ready to Shape the Future?
+                Ready to be part of something bigger?
               </motion.h3>
               
               <motion.p 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="fs-5 mb-5" 
+                className="fs-5 mb-0" 
                 style={{
                   color: theme === 'light' ? '#64748b' : '#cbd5e1',
-                  maxWidth: '600px',
-                  margin: '0 auto 2rem',
                   lineHeight: '1.6'
                 }}
               >
-                Join Kenya's most innovative companies in empowering the next generation of tech leaders. 
-                Your partnership creates lasting impact.
+                Join our ecosystem of innovators and help shape the future of technology in Kenya.
               </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center"
+            </div>
+            
+            <div className="col-lg-4 d-flex justify-content-lg-end justify-content-center">
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: theme === 'light' 
+                    ? '0 15px 35px rgba(59, 130, 246, 0.25)' 
+                    : '0 15px 35px rgba(245, 158, 11, 0.3)'
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2, delay: 0.6 }}
+                className="btn fw-semibold px-5 py-3"
+                style={{
+                  background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '12px',
+                  fontSize: '16px',
+                  boxShadow: '0 8px 25px rgba(59, 130, 246, 0.3)'
+                }}
+                onClick={() => window.open('mailto:partnerships@kca.ac.ke', '_blank')}
               >
-                <motion.button
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -3,
-                    boxShadow: theme === 'light' 
-                      ? '0 20px 40px rgba(59, 130, 246, 0.3)' 
-                      : '0 20px 40px rgba(245, 158, 11, 0.4)'
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
-                  className="kca-btn kca-btn-primary kca-btn-lg position-relative overflow-hidden"
-                  style={{
-                    background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
-                    border: 'none',
-                    padding: '1rem 2.5rem',
-                    fontSize: '1.1rem',
-                    fontWeight: '600',
-                    borderRadius: '12px',
-                    boxShadow: '0 10px 25px rgba(59, 130, 246, 0.3)'
-                  }}
-                  onClick={() => window.location.href = '#contact'}
-                >
-                  <span className="position-relative d-flex align-items-center gap-2">
-                    Become a Partner
-                    <motion.span
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      →
-                    </motion.span>
-                  </span>
-                </motion.button>
-
-                <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
-                  className="btn fw-semibold"
-                  style={{
-                    background: 'transparent',
-                    border: `2px solid ${theme === 'light' ? '#3b82f6' : '#f59e0b'}`,
-                    color: theme === 'light' ? '#3b82f6' : '#f59e0b',
-                    padding: '1rem 2rem',
-                    borderRadius: '12px'
-                  }}
-                  onClick={() => window.open('mailto:partnerships@kca.ac.ke', '_blank')}
-                >
-                  Learn More
-                </motion.button>
-              </motion.div>
-
-              {/* Stats row */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                className="row g-4 mt-4"
-              >
-                {[
-                  { number: '15+', label: 'Partners' },
-                  { number: '500+', label: 'Attendees' },
-                  { number: '2', label: 'Days' }
-                ].map((stat, index) => (
-                  <div key={stat.label} className="col-4">
-                    <motion.div
-                      initial={{ scale: 0.8 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
-                      className="text-center"
-                    >
-                      <div 
-                        className="fw-bold mb-1"
-                        style={{
-                          fontSize: '1.5rem',
-                          background: 'linear-gradient(135deg, #3b82f6, #f59e0b)',
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          backgroundClip: 'text'
-                        }}
-                      >
-                        {stat.number}
-                      </div>
-                      <div 
-                        className="small"
-                        style={{
-                          color: theme === 'light' ? '#64748b' : '#94a3b8',
-                          fontSize: '0.875rem'
-                        }}
-                      >
-                        {stat.label}
-                      </div>
-                    </motion.div>
-                  </div>
-                ))}
-              </motion.div>
+                Partner With Us
+              </motion.button>
             </div>
           </div>
         </motion.div>
